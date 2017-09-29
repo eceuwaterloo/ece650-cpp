@@ -90,3 +90,16 @@ void print_stack(std::ostream &out, Stack *s) {
         s->push (local.pop());
     }
 }
+
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "doctest.h"
+
+TEST_CASE("stack example") {
+    Stack st;
+    st.push(5);
+    st.push(6);
+    print_stack(std::cout, &st);
+    CHECK(st.pop() == 6);
+    CHECK(st.pop() == 5);
+    CHECK(st.empty() == true);
+}
