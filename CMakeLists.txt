@@ -14,6 +14,8 @@ add_executable(example2 example2.cpp)
 add_executable(complex_main complex_main.cpp)
 add_executable(list list.cpp)
 add_executable(stack stack.cpp)
+add_executable(using_pipe using_pipe.cpp)
+add_executable(using_getopt using_getopt.cpp)
 
 # create the executable for tests
 add_executable(tests test.cpp)
