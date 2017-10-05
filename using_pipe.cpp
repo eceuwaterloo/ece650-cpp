@@ -1,6 +1,7 @@
 // based on the example from
 // https://stackoverflow.com/questions/13041416/redirect-stdout-of-two-processes-to-another-processs-stdin-in-linux-c
 #include <unistd.h>
+#include <signal.h>
 #include<iostream>
 
 /// Entry point of process A
@@ -91,7 +92,13 @@ int main(void)
     close(ABtoC[1]);
 
     // start process B
-    return procB();
+    int res =  procB();
 
+    // send kill signal to all children
+    kill(childA, SIGTERM);
+    kill(childB, SIGTERM);
+
+    // exit with return code of process B
+    return res;
 
 }
