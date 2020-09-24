@@ -6,55 +6,50 @@
 #include <cmath>
 class Complex {
 private:
-    double re, im;
+  double re, im;
 
 public:
-    Complex( double = 0.0, double = 0.0 );
+  Complex(double = 0.0, double = 0.0);
 
-    /// Accessors
+  /// Accessors
 
-    double real() const;
-    double imag() const;
-    double abs() const;
-    Complex exp() const;
+  double real() const;
+  double imag() const;
+  double abs() const;
+  Complex exp() const;
 
-    /// Mutators
-    void normalize();
+  /// Mutators
+  void normalize();
 };
 
 // Constructor
-inline Complex::Complex( double r, double i ):
-    re( r ), im( i ) {/*empty constructor*/}
+inline Complex::Complex(double r, double i)
+    : re(r), im(i) { /*empty constructor*/
+}
 
 // return the real component
-inline double Complex::real() const {
-    return re;
-}
+inline double Complex::real() const { return re; }
 
 // return the imaginary component
-inline double Complex::imag() const {
-    return im;
-}
+inline double Complex::imag() const { return im; }
 
 // return the absolute value
-inline double Complex::abs() const {
-    return std::sqrt( re*re + im*im );
-}
+inline double Complex::abs() const { return std::sqrt(re * re + im * im); }
 
 // Return the exponential of the complex value
 inline Complex Complex::exp() const {
-    double exp_re = std::exp( re );
+  double exp_re = std::exp(re);
 
-    return Complex( exp_re*std::cos(im), exp_re*std::sin(im) );
+  return Complex(exp_re * std::cos(im), exp_re * std::sin(im));
 }
 
 // Normalize the complex number (giving it unit absolute value, |z| = 1)
 inline void Complex::normalize() {
-    if ( re == 0 && im == 0 ) {
-        return;
-    }
+  if (re == 0 && im == 0) {
+    return;
+  }
 
-    double absval = abs();
-    re /= absval;
-    im /= absval;
+  double absval = abs();
+  re /= absval;
+  im /= absval;
 }

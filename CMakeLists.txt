@@ -17,6 +17,9 @@ add_executable(stack stack.cpp)
 add_executable(using_pipe using_pipe.cpp)
 add_executable(using_getopt using_getopt.cpp)
 add_executable(using_rand using_rand.cpp)
-
+add_executable(ex1 ex1.cpp)
+add_executable(using_exec using_exec.cpp)
 # create the executable for tests
 add_executable(tests test.cpp)
+add_executable(using_input using_input.cpp)
+add_executable(pipe_ex pipe_ex.cpp)
